@@ -158,10 +158,11 @@ for episode in range(max_episode):
 
 		episode_reward += int(reward)
 
-		# Store experience in memory.
-		Memory.append(
-			[state, action, reward, next_state]
-		)
+		# Store experience in memory. Only do this if it's not the end step.
+		if not done:
+			Memory.append(
+				[state, action, reward, next_state]
+			)
 
 		state = next_state
 
